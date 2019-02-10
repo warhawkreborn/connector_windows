@@ -10,9 +10,9 @@ using System.Windows;
 [assembly: AssemblyTitle("WarhawkReborn")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("HP Inc.")]
+[assembly: AssemblyCompany("Dominik Thalhammer")]
 [assembly: AssemblyProduct("WarhawkReborn")]
-[assembly: AssemblyCopyright("Copyright © HP Inc. 2019")]
+[assembly: AssemblyCopyright("Copyright © Dominik Thalhammer 2019")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

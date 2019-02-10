@@ -14,7 +14,7 @@ namespace WarhawkReborn
         private WebAPI api = new WebAPI();
         private List<ServerEntry> serverList;
         private Timer timerSecond = new Timer();
-        private int timeRemaining = 60;
+        private int timeRemaining = 1;
 
         private Service service = new Service();
         private static readonly string TEXT_BTN_UPDATE_SERVERLIST = "Update ({0}s)";
@@ -22,11 +22,13 @@ namespace WarhawkReborn
         {
             InitializeComponent();
             DataContext = this;
-            timerSecond.Elapsed += TimerSecond_Elapsed;
-            timerSecond.Interval = 1000;
-            timerSecond.AutoReset = true;
-            timerSecond.Enabled = true;
-            this.UpdateServerList();
+            ContentRendered += (s,e) => {
+                timerSecond.Elapsed += TimerSecond_Elapsed;
+                timerSecond.Interval = 1000;
+                timerSecond.AutoReset = true;
+                timerSecond.Enabled = true;
+                this.UpdateServerList();
+            };
         }
 
         private void TimerSecond_Elapsed(object sender, ElapsedEventArgs e)
