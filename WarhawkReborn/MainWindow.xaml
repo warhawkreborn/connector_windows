@@ -1,0 +1,28 @@
+﻿<Window x:Class="WarhawkReborn.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WarhawkReborn"
+        mc:Ignorable="d"
+        Title="Warhawk Reborn" Height="450" Width="328.2" ResizeMode="NoResize" Icon="icon.png">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="13*"/>
+            <RowDefinition Height="6*"/>
+            <RowDefinition Height="23*"/>
+        </Grid.RowDefinitions>
+        <TextBlock Margin="10,8.4,9.6,11.6" TextWrapping="Wrap" Grid.Row="1" TextAlignment="Center" Text="All registered servers are visible to your PS3 as long as this window is open."/>
+        <Image Margin="10,10,9.6,11.6" Source="logo.png"/>
+        <DataGrid x:Name="dg_servers" Margin="10,41.4,9.6,10" Grid.Row="2" AutoGenerateColumns="False" IsReadOnly="True">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding ID}" Header="#"/>
+                <DataGridTextColumn Binding="{Binding Name}" Header="Name" Width="*"/>
+                <DataGridTextColumn Binding="{Binding Ping}" Header="Ping"/>
+                <DataGridCheckBoxColumn Binding="{Binding IsOnline, Mode=OneWay}" Header="Online"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Label Content="Available servers:" Margin="10,10.4,158.6,0" Grid.Row="2" VerticalAlignment="Top" Height="25"/>
+        <Button x:Name="btn_update_serverlist" Content="Update (60s)" Margin="0,10.4,9.6,0" Grid.Row="2" VerticalAlignment="Top" HorizontalAlignment="Right" Width="144" Click="Btn_update_serverlist_Click" Height="19"/>
+    </Grid>
+</Window>
