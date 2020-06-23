@@ -74,8 +74,8 @@ namespace WarhawkReborn
                 byte[] bip = null;
                 try
                 {
-                    var ip = Dns.GetHostEntry(e.Hostname);
-                    foreach (var i in ip.AddressList)
+                    var ips = Dns.GetHostAddresses(e.Hostname);
+                    foreach (var i in ips)
                     {
                         if (i.AddressFamily != AddressFamily.InterNetwork) continue;
                         bip = i.GetAddressBytes();
