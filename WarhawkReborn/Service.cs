@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Net;
+using System.Net.NetworkInformation;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
@@ -51,14 +52,27 @@ namespace WarhawkReborn
 
         private void HandleFrame(byte[] buffer, EndPoint from)
         {
+            string fromIp = from.ToString().Split(':').First();
+            Ping pingSender = new Ping();
+            PingReply pingReply;
+
             if (buffer.Length < 4) return;
             lock (this)
             {
                 if (_outFrames == null) return;
                 Console.WriteLine("Sending {0} in response..", _outFrames.Count);
-                foreach (var f in _outFrames)
+
+                pingReply = pingSender.Send(fromIp);
+                if (pingReply.Status == IPStatus.Success)
                 {
-                    _socket.SendTo(f, from);
+                    foreach (var f in _outFrames)
+                    {
+                        _socket.SendTo(f, from);
+                    }
+                }
+                else
+                {
+                    Console.WriteLine(pingReply.Status);
                 }
             }
         }
