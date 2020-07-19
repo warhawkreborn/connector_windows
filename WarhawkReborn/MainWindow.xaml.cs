@@ -49,10 +49,16 @@ namespace WarhawkReborn
         private void UpdateServerList()
         {
             serverList = api.GetServers();
+            serverList.RemoveAll(isOffline);
             this.service.SetServerList(serverList);
             this.dg_servers.ItemsSource = serverList;
             timeRemaining = 60;
             btn_update_serverlist.Content = String.Format(TEXT_BTN_UPDATE_SERVERLIST, timeRemaining);
+        }
+
+        private static bool isOffline(ServerEntry e)
+        {
+            return e.IsOnline != true;
         }
     }
 }
