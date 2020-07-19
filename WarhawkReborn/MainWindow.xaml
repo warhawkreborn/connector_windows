@@ -18,6 +18,11 @@
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding ID}" Header="#"/>
                 <DataGridTextColumn Binding="{Binding Name}" Header="Name" Width="*"/>
+                <DataGridTextColumn Binding="{Binding PlayersIn}" Header="In"/>
+                <DataGridTextColumn Binding="{Binding PlayersMax}" Header="Max"/>
+                <DataGridTextColumn Binding="{Binding Mode}" Header="Mode"/>
+                <DataGridTextColumn Binding="{Binding Map}" Header="Map"/>
+                <DataGridTextColumn Binding="{Binding Layout}" Header="Layout"/>
                 <DataGridTextColumn Binding="{Binding Ping}" Header="Ping"/>
                 <DataGridCheckBoxColumn Binding="{Binding IsOnline, Mode=OneWay}" Header="Online"/>
             </DataGrid.Columns>
