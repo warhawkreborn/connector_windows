@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WarhawkReborn"
         mc:Ignorable="d"
-        Title="Warhawk Reborn" Height="450" Width="328.2" ResizeMode="NoResize" Icon="icon.png">
+        Title="Warhawk Reborn" Height="450" SizeToContent="Width" Icon="icon.png">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="13*"/>
