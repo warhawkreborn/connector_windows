@@ -16,7 +16,7 @@
         <Image Margin="10,10,9.6,11.6" Source="logo.png"/>
         <DataGrid x:Name="dg_servers" Margin="10,41.4,9.6,10" Grid.Row="2" AutoGenerateColumns="False" IsReadOnly="True">
             <DataGrid.Columns>
-                <DataGridTextColumn Binding="{Binding Name}" Header="Name" Width="*"/>
+                <DataGridTextColumn Binding="{Binding Name}" Header="Name"/>
                 <DataGridTextColumn Binding="{Binding PlayersIn}" Header="In"/>
                 <DataGridTextColumn Binding="{Binding PlayersMax}" Header="Max"/>
                 <DataGridTextColumn Binding="{Binding Mode}" Header="Mode"/>
